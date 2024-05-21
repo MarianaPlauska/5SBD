@@ -36,8 +36,7 @@ END
 -- Fechando e desalocando o cursor
 CLOSE proc_cursor
 DEALLOCATE proc_cursor
-
--- Recriação dos procedimentos armazenados
+GO
 
 -- Criação do procedimento CARREGAR_CLIENTES
 CREATE PROCEDURE CARREGAR_CLIENTES
