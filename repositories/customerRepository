@@ -1,0 +1,25 @@
+const { Customer } = require('../models');
+
+class CustomerRepository {
+  async add(customer) {
+    return await Customer.create(customer);
+  }
+
+  async getByCPF(cpf) {
+    return await Customer.findOne({ where: { cpf } });
+  }
+
+  async update(cpf, customer) {
+    return await Customer.update(customer, { where: { cpf } });
+  }
+
+  async delete(cpf) {
+    return await Customer.destroy({ where: { cpf } });
+  }
+
+  async getAll() {
+    return await Customer.findAll();
+  }
+}
+
+module.exports = CustomerRepository;

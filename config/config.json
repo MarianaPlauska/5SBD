@@ -1,0 +1,10 @@
+{
+    "development": {
+      "username": "LAPTOP-MOBVVC6L\\MSQLPLAUSKA",
+      "password": "",
+      "database": "Bazar",
+      "host": "localhost",
+      "dialect": "mssql"
+    }
+  }
+  
