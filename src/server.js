@@ -1,19 +1,14 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const customerRoutes = require('../routes/customerRoutes');
-const orderRoutes = require('../routes/orderRoutes');
-const orderItemRoutes = require('../routes/orderItemRoutes');
-const productRoutes = require('../routes/productRoutes');
 const app = express();
-const port = 3000;
+const bodyParser = require('body-parser');
+const routes = require('.routes/');
+const { sequelize } = require('./models');
 
 app.use(bodyParser.json());
+app.use('/api', routes);
 
-app.use('/customers', customerRoutes);
-app.use('/orders', orderRoutes);
-app.use('/order-items', orderItemRoutes);
-app.use('/products', productRoutes);
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+sequelize.sync().then(() => {
+  app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+  });
 });
